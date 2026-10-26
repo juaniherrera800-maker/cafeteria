@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f2e9" />
+    <meta
+      name="description"
+      content="Descubrí nuestra carta de cafés, pastelería y desayunos."
+    />
+    <title>Grano Café | Carta Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --cream: #f7f2e9;
+        --paper: #fffdf8;
+        --brown: #493326;
+        --coffee: #76553e;
+        --muted: #89796c;
+        --line: #e8ded0;
+        --accent: #b58a60;
+        --green: #68735a;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 115px;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--brown);
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        width: min(100% - 36px, 920px);
+        margin-inline: auto;
+      }
+
+      /* ENCABEZADO */
+
+      .topbar {
+        padding: 19px 0;
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .brand-mark {
+        width: 43px;
+        height: 43px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--accent);
+        border-radius: 50%;
+        color: var(--coffee);
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+      }
+
+      .brand-name {
+        font-family: "Playfair Display", serif;
+        font-size: 23px;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      .brand-subtitle {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 9px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .menu-label {
+        color: var(--coffee);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* PORTADA */
+
+      .hero {
+        padding: 32px 0 26px;
+      }
+
+      .hero-card {
+        position: relative;
+        display: flex;
+        min-height: 300px;
+        overflow: hidden;
+        align-items: center;
+        border-radius: 8px;
+        background: #493326;
+        color: #fffaf2;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        width: 55%;
+        padding: 36px 10px 36px 38px;
+      }
+
+      .eyebrow {
+        color: #d9b990;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin: 12px 0;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(32px, 5vw, 47px);
+        font-weight: 500;
+        line-height: 1.12;
+      }
+
+      .hero-copy p {
+        max-width: 310px;
+        color: #e2d3c4;
+        font-size: 13px;
+      }
+
+      .hero-note {
+        display: inline-block;
+        margin-top: 22px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #b58a60;
+        color: #e9cda9;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-image {
+        position: absolute;
+        inset: 0 0 0 47%;
+        background:
+          linear-gradient(
+            90deg,
+            #493326 0%,
+            rgba(73, 51, 38, 0.22) 38%,
+            rgba(73, 51, 38, 0.03) 100%
+          ),
+          url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85")
+            center / cover;
+      }
+
+      /* INFORMACIÓN */
+
+      .info-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 34px;
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .info-item {
+        padding: 0 12px;
+        text-align: center;
+      }
+
+      .info-item + .info-item {
+        border-left: 1px solid var(--line);
+      }
+
+      .info-item strong {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .info-item span {
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      /* NAVEGACIÓN DE CATEGORÍAS */
+
+      .category-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 242, 233, 0.97);
+        backdrop-filter: blur(10px);
+      }
+
+      .category-list {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .category-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-link {
+        flex-shrink: 0;
+        padding: 8px 14px;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        background: var(--paper);
+        color: var(--coffee);
+        font-size: 11px;
+        transition: 0.2s ease;
+      }
+
+      .category-link:hover,
+      .category-link.active {
+        border-color: var(--brown);
+        background: var(--brown);
+        color: white;
+      }
+
+      /* CARTA */
+
+      main {
+        padding: 35px 0 65px;
+      }
+
+      .section {
+        margin-bottom: 43px;
+        scroll-margin-top: 90px;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 18px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-kicker {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--accent);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .section-heading h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 29px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .section-heading p {
+        max-width: 210px;
+        color: var(--muted);
+        font-size: 11px;
+        text-align: right;
+      }
+
+      /* PRODUCTOS DESTACADOS */
+
+      .featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+      }
+
+      .featured-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: var(--paper);
+      }
+
+      .featured-card img {
+        display: block;
+        width: 100%;
+        height: 145px;
+        object-fit: cover;
+        background: #e8ded0;
+      }
+
+      .featured-content {
+        padding: 13px;
+      }
+
+      .featured-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .featured-content p {
+        min-height: 36px;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .featured-price {
+        display: block;
+        margin-top: 10px;
+        color: var(--coffee);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      /* LISTAS DE PRODUCTOS */
+
+      .menu-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .item-info {
+        min-width: 0;
+      }
+
+      .item-name {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .item-description {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .item-price {
+        flex-shrink: 0;
+        padding-top: 1px;
+        color: var(--coffee);
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-left: 5px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        background: #e9ecdf;
+        color: var(--green);
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+
+      /* COMBOS */
+
+      .combo-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .combo {
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #efe5d6;
+      }
+
+      .combo-label {
+        color: var(--coffee);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .combo h3 {
+        margin: 6px 0;
+        font-family: "Playfair Display", serif;
+        font-size: 21px;
+        font-weight: 600;
+      }
+
+      .combo p {
+        color: #796657;
+        font-size: 11px;
+      }
+
+      .combo-price {
+        display: block;
+        margin-top: 12px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      /* NOTA Y PIE */
+
+      .menu-note {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 10px;
+      }
+
+      .footer {
+        padding: 35px 0 25px;
+        background: var(--brown);
+        color: #f7f2e9;
+        text-align: center;
+      }
+
+      .footer-brand {
+        font-family: "Playfair Display", serif;
+        font-size: 27px;
+      }
+
+      .footer p {
+        margin-top: 7px;
+        color: #d4c2b0;
+        font-size: 11px;
+      }
+
+      .footer-line {
+        width: 45px;
+        height: 1px;
+        margin: 20px auto;
+        background: var(--accent);
+      }
+
+      .footer small {
+        color: #bca998;
+        font-size: 9px;
+        letter-spacing: 0.5px;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 620px) {
+        .container {
+          width: min(100% - 28px, 500px);
+        }
+
+        .topbar {
+          padding: 15px 0;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+          font-size: 19px;
+        }
+
+        .brand-name {
+          font-size: 21px;
+        }
+
+        .menu-label {
+          font-size: 9px;
+          letter-spacing: 1px;
+        }
+
+        .hero {
+          padding-top: 20px;
+        }
+
+        .hero-card {
+          min-height: 285px;
+          align-items: end;
+        }
+
+        .hero-image {
+          inset: 0;
+          background:
+            linear-gradient(
+              0deg,
+              rgba(48, 32, 23, 0.97) 0%,
+              rgba(48, 32, 23, 0.74) 40%,
+              rgba(48, 32, 23, 0.08) 100%
+            ),
+            url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80")
+              center / cover;
+        }
+
+        .hero-copy {
+          width: 100%;
+          padding: 30px 23px;
+        }
+
+        .hero h1 {
+          max-width: 300px;
+          font-size: 37px;
+        }
+
+        .info-strip {
+          margin-bottom: 25px;
+        }
+
+        .info-item {
+          padding: 0 5px;
+        }
+
+        .info-item strong {
+          font-size: 10px;
+        }
+
+        .info-item span {
+          font-size: 9px;
+        }
+
+        .category-nav {
+          padding: 10px 0;
+        }
+
+        .category-link {
+          padding: 8px 12px;
+          font-size: 10px;
+        }
+
+        main {
+          padding-top: 28px;
+        }
+
+        .section {
+          margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+          font-size: 25px;
+        }
+
+        .section-heading p {
+          max-width: 135px;
+          font-size: 10px;
+        }
+
+        .featured-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .featured-card img {
+          height: 120px;
+        }
+
+        .featured-content {
+          padding: 11px;
+        }
+
+        .featured-content h3 {
+          font-size: 15px;
+        }
+
+        .featured-content p {
+          min-height: 0;
+        }
+
+        .menu-list {
+          grid-template-columns: 1fr;
+        }
+
+        .menu-item {
+          padding: 13px 0;
+        }
+
+        .combo-box {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#inicio" aria-label="Grano Café, inicio">
+          <div class="brand-mark">G.</div>
+          <div>
+            <div class="brand-name">grano café</div>
+            <div class="brand-subtitle">Café · Pausa · Encuentro</div>
+          </div>
+        </a>
+        <span class="menu-label">Nuestra carta</span>
+      </div>
+    </header>
+
+    <!-- PORTADA -->
+    <section class="hero container" id="inicio">
+      <div class="hero-card">
+        <div
+          class="hero-image"
+          role="img"
+          aria-label="Ambiente cálido de cafetería"
+        ></div>
+        <div class="hero-copy">
+          <span class="eyebrow">Un momento para vos</span>
+          <h1>El placer de hacer una pausa.</h1>
+          <p>
+            Café recién preparado, algo rico para acompañar y un lugar donde
+            quedarse un ratito más.
+          </p>
+          <a href="#cafes" class="hero-note">Descubrí nuestra carta ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMACIÓN DEL LOCAL -->
+    <div class="container">
+      <div class="info-strip">
+        <div class="info-item">
+          <strong>☕ Café de especialidad</strong>
+          <span>Preparado al momento</span>
+        </div>
+        <div class="info-item">
+          <strong>🥐 Algo rico</strong>
+          <span>Dulce y salado</span>
+        </div>
+        <div class="info-item">
+          <strong>♡ Hecho con cariño</strong>
+          <span>Todos los días</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="category-nav" aria-label="Categorías de la carta">
+      <div class="container category-list">
+        <a class="category-link active" href="#destacados">Destacados</a>
+        <a class="category-link" href="#cafes">Cafés</a>
+        <a class="category-link" href="#frios">Bebidas frías</a>
+        <a class="category-link" href="#desayunos">Desayunos</a>
+        <a class="category-link" href="#pasteleria">Pastelería</a>
+        <a class="category-link" href="#salado">Salado</a>
+        <a class="category-link" href="#combos">Combos</a>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- DESTACADOS -->
+      <section class="section" id="destacados">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Para empezar</span>
+            <h2>Los favoritos</h2>
+          </div>
+          <p>Esos clásicos que siempre dan ganas de repetir.</p>
+        </div>
+
+        <div class="featured-grid">
+          <article class="featured-card">
+            <img
+              src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=500&q=80"
+              alt="Cappuccino con arte latte"
+              loading="lazy"
+            />
+            <div class="featured-content">
+              <h3>Cappuccino</h3>
+              <p>Espresso, leche cremosa y una delicada capa de espuma.</p>
+              <span class="featured-price">$3.500</span>
+            </div>
+          </article>
+
+          <article class="featured-card">
+            <img
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80"
+              alt="Croissants recién horneados"
+              loading="lazy"
+            />
+            <div class="featured-content">
+              <h3>Medialunas</h3>
+              <p>Tiernas, doradas y perfectas para acompañar el café.</p>
+              <span class="featured-price">$1.200</span>
+            </div>
+          </article>
+
+          <article class="featured-card">
+            <img
+              src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=500&q=80"
+              alt="Porción de torta de chocolate"
+              loading="lazy"
+            />
+            <div class="featured-content">
+              <h3>Porción de torta</h3>
+              <p>Una porción dulce para regalarte un momento especial.</p>
+              <span class="featured-price">$4.200</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CAFÉS -->
+      <section class="section" id="cafes">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Recién preparados</span>
+            <h2>Cafés calientes</h2>
+          </div>
+          <p>El aroma que hace que todo empiece mejor.</p>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Espresso</h3>
+              <p class="item-description">
+                Café intenso, corto y lleno de aroma.
+              </p>
+            </div>
+            <span class="item-price">$2.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Espresso doble</h3>
+              <p class="item-description">
+                Doble intensidad para los amantes del café.
+              </p>
+            </div>
+            <span class="item-price">$2.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Americano</h3>
+              <p class="item-description">
+                Espresso con agua caliente, suave y aromático.
+              </p>
+            </div>
+            <span class="item-price">$2.500</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Cortado</h3>
+              <p class="item-description">
+                Café espresso con un toque de leche.
+              </p>
+            </div>
+            <span class="item-price">$2.600</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Café con leche</h3>
+              <p class="item-description">
+                Equilibrado, cremoso y reconfortante.
+              </p>
+            </div>
+            <span class="item-price">$3.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">
+                Cappuccino <span class="tag">Favorito</span>
+              </h3>
+              <p class="item-description">
+                Espresso, leche vaporizada y espuma.
+              </p>
+            </div>
+            <span class="item-price">$3.500</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Latte</h3>
+              <p class="item-description">
+                Espresso con abundante leche cremosa.
+              </p>
+            </div>
+            <span class="item-price">$3.400</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Submarino</h3>
+              <p class="item-description">
+                Leche caliente con chocolate para fundir.
+              </p>
+            </div>
+            <span class="item-price">$3.600</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Té en hebras</h3>
+              <p class="item-description">
+                Selección de té negro, verde o hierbas.
+              </p>
+            </div>
+            <span class="item-price">$2.400</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Chocolate caliente</h3>
+              <p class="item-description">
+                Chocolate cremoso con leche caliente.
+              </p>
+            </div>
+            <span class="item-price">$3.800</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- BEBIDAS FRÍAS -->
+      <section class="section" id="frios">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Frescos y deliciosos</span>
+            <h2>Bebidas frías</h2>
+          </div>
+          <p>Para disfrutar en cualquier momento del día.</p>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Iced latte</h3>
+              <p class="item-description">Espresso, leche fría y hielo.</p>
+            </div>
+            <span class="item-price">$3.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Frappé de café</h3>
+              <p class="item-description">
+                Café frío, hielo y textura cremosa.
+              </p>
+            </div>
+            <span class="item-price">$4.500</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Limonada clásica</h3>
+              <p class="item-description">Limón exprimido, agua y hielo.</p>
+            </div>
+            <span class="item-price">$3.200</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Limonada con menta</h3>
+              <p class="item-description">Limón fresco, menta y hielo.</p>
+            </div>
+            <span class="item-price">$3.700</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Licuado de banana</h3>
+              <p class="item-description">
+                Banana y leche, preparado al momento.
+              </p>
+            </div>
+            <span class="item-price">$3.500</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Jugo de naranja</h3>
+              <p class="item-description">Naranjas exprimidas naturalmente.</p>
+            </div>
+            <span class="item-price">$3.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Agua mineral</h3>
+              <p class="item-description">Con o sin gas.</p>
+            </div>
+            <span class="item-price">$1.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Gaseosa</h3>
+              <p class="item-description">
+                Variedades clásicas, línea regular.
+              </p>
+            </div>
+            <span class="item-price">$2.200</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- DESAYUNOS -->
+      <section class="section" id="desayunos">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">La mañana empieza acá</span>
+            <h2>Desayunos</h2>
+          </div>
+          <p>Opciones para empezar el día con algo rico.</p>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Tostadas clásicas</h3>
+              <p class="item-description">
+                Pan tostado con manteca y mermelada.
+              </p>
+            </div>
+            <span class="item-price">$3.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Yogur con granola</h3>
+              <p class="item-description">
+                Yogur natural, granola y fruta de estación.
+              </p>
+            </div>
+            <span class="item-price">$4.200</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Tostadas con palta</h3>
+              <p class="item-description">Pan tostado, palta y semillas.</p>
+            </div>
+            <span class="item-price">$4.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Huevos revueltos</h3>
+              <p class="item-description">Huevos cremosos con tostadas.</p>
+            </div>
+            <span class="item-price">$4.500</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- PASTELERÍA -->
+      <section class="section" id="pasteleria">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Un toque dulce</span>
+            <h2>Pastelería</h2>
+          </div>
+          <p>El acompañamiento ideal para tu café.</p>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Medialuna de manteca</h3>
+              <p class="item-description">Clásica, suave y dorada.</p>
+            </div>
+            <span class="item-price">$1.200</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Medialuna de grasa</h3>
+              <p class="item-description">
+                La opción tradicional para acompañar el mate o café.
+              </p>
+            </div>
+            <span class="item-price">$1.100</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Cookie con chips</h3>
+              <p class="item-description">Galleta artesanal con chocolate.</p>
+            </div>
+            <span class="item-price">$2.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Brownie</h3>
+              <p class="item-description">Chocolate intenso y centro húmedo.</p>
+            </div>
+            <span class="item-price">$2.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Alfajor artesanal</h3>
+              <p class="item-description">Relleno de dulce de leche.</p>
+            </div>
+            <span class="item-price">$2.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Porción de cheesecake</h3>
+              <p class="item-description">Cremoso, con base crocante.</p>
+            </div>
+            <span class="item-price">$4.200</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Porción de chocotorta</h3>
+              <p class="item-description">
+                Galletitas de chocolate, crema y dulce de leche.
+              </p>
+            </div>
+            <span class="item-price">$4.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Budín del día</h3>
+              <p class="item-description">Consultar variedades disponibles.</p>
+            </div>
+            <span class="item-price">$2.300</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- SALADO -->
+      <section class="section" id="salado">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Para cualquier hora</span>
+            <h2>Opciones saladas</h2>
+          </div>
+          <p>Algo rico para acompañar tu pausa.</p>
+        </div>
+
+        <div class="menu-list">
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Tostado de jamón y queso</h3>
+              <p class="item-description">
+                Pan tostado, jamón cocido y queso fundido.
+              </p>
+            </div>
+            <span class="item-price">$4.500</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Sándwich de pollo</h3>
+              <p class="item-description">
+                Pollo, hojas verdes y aderezo de la casa.
+              </p>
+            </div>
+            <span class="item-price">$5.800</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Chipá</h3>
+              <p class="item-description">
+                Panecitos de queso, ideales para acompañar.
+              </p>
+            </div>
+            <span class="item-price">$1.000</span>
+          </article>
+
+          <article class="menu-item">
+            <div class="item-info">
+              <h3 class="item-name">Porción de tarta</h3>
+              <p class="item-description">Consultar variedad del día.</p>
+            </div>
+            <span class="item-price">$3.800</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- COMBOS -->
+      <section class="section" id="combos">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Una combinación perfecta</span>
+            <h2>Combos</h2>
+          </div>
+          <p>Todo lo que necesitás en una sola elección.</p>
+        </div>
+
+        <div class="combo-box">
+          <article class="combo">
+            <span class="combo-label">El clásico</span>
+            <h3>Desayuno Grano</h3>
+            <p>Café con leche o cortado + dos medialunas.</p>
+            <span class="combo-price">$4.500</span>
+          </article>
+
+          <article class="combo">
+            <span class="combo-label">Para compartir</span>
+            <h3>Momento dulce</h3>
+            <p>Dos cafés con leche + cuatro medialunas.</p>
+            <span class="combo-price">$9.000</span>
+          </article>
+
+          <article class="combo">
+            <span class="combo-label">Fresco y liviano</span>
+            <h3>Pausa natural</h3>
+            <p>Licuado de fruta + tostadas con queso crema.</p>
+            <span class="combo-price">$5.500</span>
+          </article>
+
+          <article class="combo">
+            <span class="combo-label">Para la tarde</span>
+            <h3>Antojo dulce</h3>
+            <p>Cappuccino + porción de torta a elección.</p>
+            <span class="combo-price">$6.800</span>
+          </article>
+        </div>
+
+        <p class="menu-note">
+          Los combos son ejemplos de esta plantilla. Los precios y productos
+          pueden modificarse según el local.
+        </p>
+      </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-brand">grano café</div>
+        <p>Un buen café. Una pausa. Un momento para vos.</p>
+        <div class="footer-line"></div>
+        <small>Gracias por compartir este momento con nosotros.</small>
+        <p>Precios de ejemplo · Consultá por productos disponibles.</p>
+      </div>
+    </footer>
+
+    <!-- NAVEGACIÓN ACTIVA -->
+    <script>
+      const categoryLinks = document.querySelectorAll(".category-link");
+
+      categoryLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          categoryLinks.forEach((item) => item.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+
+      const sections = document.querySelectorAll("main .section");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                categoryLinks.forEach((link) => {
+                  link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + entry.target.id,
+                  );
+                });
+              }
+            });
+          },
+          {
+            rootMargin: "-20% 0px -65% 0px",
+          },
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+    </script>
+  </body>
+</html>
